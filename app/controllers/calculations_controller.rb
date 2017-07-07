@@ -13,11 +13,11 @@ class CalculationsController < ApplicationController
 
     @word_count = @text.split.count
 
-    @character_count_with_spaces = "Replace this string with your answer."
+    @character_count_with_spaces = @text.size
 
-    @character_count_without_spaces = "Replace this string with your answer."
+    @character_count_without_spaces = @text.count('^ ')
 
-    @occurrences = "Replace this string with your answer."
+    @occurrences =  @text.count(' ')
 
     # ================================================================================
     # Your code goes above.
@@ -38,8 +38,8 @@ class CalculationsController < ApplicationController
     # The principal value the user input is in the decimal @principal.
     # ================================================================================
 
-    @monthly_payment = "Replace this string with your answer."
-
+    @monthly_payment = (@principal * (@apr/100/12)*((1+@apr/100/12)**(@years*12))) / (((1+@apr/100/12)**(@years*12))-1)
+    # P = L[c(1 + c)n]/[(1 + c)n - 1]
     # ================================================================================
     # Your code goes above.
     # ================================================================================
@@ -60,12 +60,12 @@ class CalculationsController < ApplicationController
     #   number of seconds as a result.
     # ================================================================================
 
-    @seconds = "Replace this string with your answer."
-    @minutes = "Replace this string with your answer."
-    @hours = "Replace this string with your answer."
-    @days = "Replace this string with your answer."
-    @weeks = "Replace this string with your answer."
-    @years = "Replace this string with your answer."
+    @seconds = (@ending - @starting)
+    @minutes = @seconds/60
+    @hours = @minutes/60
+    @days = @hours/24
+    @weeks = @days/7
+    @years = @days/365
 
     # ================================================================================
     # Your code goes above.
