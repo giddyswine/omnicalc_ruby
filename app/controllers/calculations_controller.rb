@@ -82,26 +82,32 @@ class CalculationsController < ApplicationController
     # The numbers the user input are in the array @numbers.
     # ================================================================================
 
-    @sorted_numbers = "Replace this string with your answer."
+  
 
-    @count = "Replace this string with your answer."
 
-    @minimum = "Replace this string with your answer."
 
-    @maximum = "Replace this string with your answer."
 
-    @range = "Replace this string with your answer."
+    @sorted_numbers = @numbers.sort
 
-    @median = "Replace this string with your answer."
+    @count = @numbers.count
 
-    @sum = "Replace this string with your answer."
+    @minimum = @numbers.min
 
-    @mean = "Replace this string with your answer."
+    @maximum = @numbers.max
+
+    @range = @maximum-@minimum
+
+    @median = "A"
+    
+
+    @sum = @numbers.inject(0, :+)
+
+    @mean = @sum/@count
 
     @variance = "Replace this string with your answer."
 
     @standard_deviation = "Replace this string with your answer."
-
+    
     @mode = "Replace this string with your answer."
 
     # ================================================================================
