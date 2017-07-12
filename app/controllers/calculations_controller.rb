@@ -82,10 +82,6 @@ class CalculationsController < ApplicationController
     # The numbers the user input are in the array @numbers.
     # ================================================================================
 
-  
-
-
-
 
     @sorted_numbers = @numbers.sort
 
@@ -96,10 +92,18 @@ class CalculationsController < ApplicationController
     @maximum = @numbers.max
 
     @range = @maximum-@minimum
-
-    @median = "A"
     
+    if @count.odd?
+      @halfed=@count/2
+      @your_output = @numbers[@halfed]
+    else
+      @abc=@count/2
+      @bcd=@abc-1
+      @your_output = (@sorted_numbers[@abc]+@sorted_numbers[@bcd])/2
+    end
 
+    @median= @your_output
+    
     @sum = @numbers.inject(0, :+)
 
     @mean = @sum/@count
