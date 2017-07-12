@@ -17,7 +17,11 @@ class CalculationsController < ApplicationController
 
     @character_count_without_spaces = @text.count('^ ')
 
-    @occurrences =  @text.count (@special_word)
+    @countaaaa = @text.gsub("the","aaaa")
+    @countaaaa = @countaaaa.count ("aaaaa")
+    @counttext = @text.count ("aaaa")
+    
+    @occurrences =  (@countaaaa-@counttext)/4
     
 
     # ================================================================================
