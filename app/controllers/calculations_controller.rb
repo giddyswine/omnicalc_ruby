@@ -16,9 +16,10 @@ class CalculationsController < ApplicationController
     @character_count_with_spaces = @text.size
 
     @character_count_without_spaces = @text.count('^ ')
-
-    @countaaaa = @text.gsub("the","aaaa")
-    @countaaaa = @countaaaa.gsub("The","aaaa")
+    
+    @capitalizesw = @special_word.capitalize
+    @countaaaa = @text.gsub(@special_word,"aaaa")
+    @countaaaa = @countaaaa.gsub(@capitalizesw,"aaaa")
     
     @countaaaa = @countaaaa.count ("aaaaa")
     @counttext = @text.count ("aaaa")
