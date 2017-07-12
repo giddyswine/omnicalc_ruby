@@ -17,7 +17,8 @@ class CalculationsController < ApplicationController
 
     @character_count_without_spaces = @text.count('^ ')
 
-    @occurrences =  @text.count(' ')
+    @occurrences =  @text.count (@special_word)
+    
 
     # ================================================================================
     # Your code goes above.
@@ -99,7 +100,7 @@ class CalculationsController < ApplicationController
     else
       @abc=@count/2
       @bcd=@abc-1
-      @your_output = (@sorted_numbers[@abc]+@sorted_numbers[@bcd])/2
+      @your_output = (((@sorted_numbers[@abc]+@sorted_numbers[@bcd])/2)*10+5)/10
     end
 
     @median= @your_output
@@ -119,6 +120,10 @@ class CalculationsController < ApplicationController
     @variance = squared_numbers.sum/@count
 
     @standard_deviation = @variance ** 0.5
+    
+    
+    
+    
     
     @mode = "Replace this string with your answer."
 
