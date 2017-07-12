@@ -17,7 +17,14 @@ class CalculationsController < ApplicationController
 
     @character_count_without_spaces = @text.count('^ ')
 
-    @occurrences =  @text.count(' ')
+    @countaaaa = @text.gsub("the","aaaa")
+    @countaaaa = @countaaaa.gsub("The","aaaa")
+    
+    @countaaaa = @countaaaa.count ("aaaaa")
+    @counttext = @text.count ("aaaa")
+    
+    @occurrences =  (@countaaaa-@counttext)/4
+    
 
     # ================================================================================
     # Your code goes above.
@@ -82,26 +89,48 @@ class CalculationsController < ApplicationController
     # The numbers the user input are in the array @numbers.
     # ================================================================================
 
-    @sorted_numbers = "Replace this string with your answer."
 
-    @count = "Replace this string with your answer."
+    @sorted_numbers = @numbers.sort
 
-    @minimum = "Replace this string with your answer."
+    @count = @numbers.count
 
-    @maximum = "Replace this string with your answer."
+    @minimum = @numbers.min
 
-    @range = "Replace this string with your answer."
+    @maximum = @numbers.max
 
-    @median = "Replace this string with your answer."
+    @range = @maximum-@minimum
+    
+    if @count.odd?
+      @halfed=@count/2+1
+      @your_output = @numbers[@halfed]
+    else
+      @abc=@count/2
+      @bcd=@abc-1
+      @your_output = (@sorted_numbers[@abc]+@sorted_numbers[@bcd])/2
+    end
 
-    @sum = "Replace this string with your answer."
+    @median= @your_output
+    
+    @sum = @numbers.inject(0, :+)
 
-    @mean = "Replace this string with your answer."
+    @mean = @sum/@count
+    
+    average=@mean
+    squared_numbers=[]
+    
+    @sorted_numbers.each do |num|
+        squared = (num-average)**2
+      squared_numbers.push(squared)
+    end  
+    
+    @variance = squared_numbers.sum/@count
 
-    @variance = "Replace this string with your answer."
-
-    @standard_deviation = "Replace this string with your answer."
-
+    @standard_deviation = @variance ** 0.5
+    
+    
+    
+    
+    
     @mode = "Replace this string with your answer."
 
     # ================================================================================
