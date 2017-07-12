@@ -107,10 +107,18 @@ class CalculationsController < ApplicationController
     @sum = @numbers.inject(0, :+)
 
     @mean = @sum/@count
+    
+    average=@mean
+    squared_numbers=[]
+    
+    @sorted_numbers.each do |num|
+        squared = (num-average)**2
+      squared_numbers.push(squared)
+    end  
+    
+    @variance = squared_numbers.sum/@count
 
-    @variance = "Replace this string with your answer."
-
-    @standard_deviation = "Replace this string with your answer."
+    @standard_deviation = @variance ** 0.5
     
     @mode = "Replace this string with your answer."
 
