@@ -99,7 +99,7 @@ class CalculationsController < ApplicationController
     @range = @maximum-@minimum
     
     if @count.odd?
-      @halfed=@count/2
+      @halfed=@count/2+1
       @your_output = @numbers[@halfed]
     else
       @abc=@count/2
