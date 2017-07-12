@@ -104,7 +104,7 @@ class CalculationsController < ApplicationController
     else
       @abc=@count/2
       @bcd=@abc-1
-      @your_output = (((@sorted_numbers[@abc]+@sorted_numbers[@bcd])/2)*10+5)/10
+      @your_output = (@sorted_numbers[@abc]+@sorted_numbers[@bcd])/2
     end
 
     @median= @your_output
